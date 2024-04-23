@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,7 +17,9 @@ const Header = () => {
         className="bg-body-tertiary"
       >
         <Container>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/">Note Diary</Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="m-auto">
@@ -34,7 +37,9 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">My Notes</Nav.Link>
+              <Nav.Link>
+                <Link to="/mynotes">My Notes</Link>
+              </Nav.Link>
               <NavDropdown title="Vamsi V" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Dashboard</NavDropdown.Item>
                 <NavDropdown.Divider />
