@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import MainScreen from "../../components/MainScreen";
 import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
 import Badge from "react-bootstrap/esm/Badge";
-import Accordion from "react-bootstrap/Accordion";
+import Accordion from "react-bootstrap/esm/Accordion";
 import { Link } from "react-router-dom";
-import notes from "../../data/notes";
 
 function MyNotes() {
+  const [notes, setNotes] = useState([]);
+
   const deleteHandler = () => {
     if (window.confirm("Are you sure?")) {
     }
   };
+
+  const fetchNotes = async () => {
+    const { data } = await axios.get("/api/notes");
+    setNotes(data);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+
   return (
     <div>
       <MainScreen title="Welcome back Vamsi Vattigunta...">
@@ -21,7 +33,7 @@ function MyNotes() {
           </Button>
         </Link>
         {notes.map((note) => (
-          <Accordion>
+          <Accordion flush key={note._id}>
             <Accordion.Item eventKey="0">
               <Card style={{ margin: 10 }}>
                 <Card.Header style={{ display: "flex" }}>
@@ -35,7 +47,7 @@ function MyNotes() {
                       fontSize: 18,
                     }}
                   >
-                    <Accordion.Head>{note.title}</Accordion.Head>
+                    <Accordion.Header>{note.title}</Accordion.Header>
                   </span>
 
                   <div>
