@@ -4,6 +4,8 @@ import Header from "./components/header/Header";
 import LandingPage from "./screens/LandingPage/LandingPage";
 import MyNotes from "./screens/MyNotes/MyNotes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./screens/RegisterScreen/Register";
+import Login from "./screens/LoginScreen/Login";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<LandingPage />} exact />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/mynotes" element={<MyNotes />} />
           </Routes>
         </main>

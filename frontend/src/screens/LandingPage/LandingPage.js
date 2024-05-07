@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   const userInfo = localStorage.getItem("userInfo");
+  //   if (userInfo) {
+  //     navigate("/mynotes");
+  //   }
+  // }, []);
+
   return (
     <div className="main">
       <Container>
@@ -15,12 +25,12 @@ function LandingPage() {
               <p className="subtitle">One Safe place for all your notes</p>
             </div>
             <div className="button-container">
-              <a href="/login">
+              <Link to="/login">
                 <Button size="lg" className="landingbutton">
                   Login
                 </Button>
-              </a>
-              <a href="/register">
+              </Link>
+              <Link to="/register">
                 <Button
                   size="lg"
                   className="landingbutton"
@@ -28,7 +38,7 @@ function LandingPage() {
                 >
                   Signup
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </Row>
