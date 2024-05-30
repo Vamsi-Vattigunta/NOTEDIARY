@@ -34,4 +34,4 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
 //creating a web server
-app.listen(5001, console.log(`server is running on PORT ${PORT}`));
+app.listen(PORT, console.log(`server is running on PORT ${PORT}`));
