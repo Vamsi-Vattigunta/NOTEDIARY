@@ -31,7 +31,7 @@ function Register() {
     if (userInfo) {
       navigate("/mynotes");
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
