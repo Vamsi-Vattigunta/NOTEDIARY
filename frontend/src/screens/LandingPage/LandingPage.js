@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
-  //   if (userInfo) {
-  //     navigate("/mynotes");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      navigate("/mynotes");
+    }
+  }, []);
 
   return (
     <div className="main">
